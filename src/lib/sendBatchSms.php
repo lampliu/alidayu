@@ -7,13 +7,12 @@
  * 2017/11/30
  */
 
-namespace Aliyun;
-
-require_once dirname(__DIR__) . "/SignatureHelper.php";
+namespace Aliyun\src;
 
 use Aliyun\SignatureHelper;
 
-
+class sendBatchSms{
+	
 /**
  * 批量发送短信
  */
@@ -96,3 +95,4 @@ header("Content-Type: text/plain; charset=utf-8"); // 输出为utf-8的文本格
 
 // 验证发送短信(SendSms)接口
 print_r(sendBatchSms());
+}

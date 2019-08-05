@@ -6,7 +6,7 @@
  *
  * Class SignatureHelper
  */
- namespace Alidayu;
+namespace Alidayu;
  
 class SignatureHelper {
 

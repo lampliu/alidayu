@@ -7,13 +7,13 @@
  * 2017/11/30
  */
 
-namespace Aliyun;
+namespace Aliyun\lib;
 
-require_once dirname(__DIR__) . "/SignatureHelper.php";
+use Alidayu\SignatureHelper;
 
-use Aliyun\SignatureHelper;
-
-/**
+class querySendDetails{
+	
+	/**
  * 短信发送记录查询
  */
 function querySendDetails() {
@@ -71,3 +71,5 @@ header("Content-Type: text/plain; charset=utf-8"); // 输出为utf-8的文本格
 
 // 验证查询短信发送情况(QuerySendDetails)接口
 print_r(querySendDetails());
+}
+
