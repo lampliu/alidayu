@@ -9,7 +9,7 @@
 
 namespace app\logic;
 
-use Alidayu;
+use Alidayu\AlidayuMessage;
 
 
 class Message
@@ -21,8 +21,6 @@ class Message
      * 阿里大鱼发送短信
      */
     public function senddayuMessage($status,$params=[]){
-  
-        $message=new Alidayu();
 
         switch($status){
             case 1;
@@ -45,6 +43,8 @@ class Message
             "number"=>$number,
             "send_content"=>$send_content
         ];
+        
+        $message=new AlidayuMessage();
         $res=$message->sendSms($params);
 
         return $res;
