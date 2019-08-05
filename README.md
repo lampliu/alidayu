@@ -1,31 +1,56 @@
-# 阿里大鱼短信库 ThinkPHP5
-
-## 安装方法
-```
-composer require anerg2046/alidayu
-```
-
->类库使用的命名空间为`\\anerg\\Alidayu`
-
-
-## 典型用法
->以ThinkPHP5为例
-
 ```php
 <?php
+/**
+ * Created by PhpStorm.
+ * User: 304455977@qq.com
+ * Date: 2017/9/30
+ * Time: 10:03
+ */
 
-namespace app\common\service;
+namespace app\logic;
 
-use anerg\Alidayu\SmsGateWay;
+use Alidayu;
 
-class Sms {
 
-    public function send_code($mobile) {
-        $code = mt_rand(1000, 9999);
-        $AliSMS = new SmsGateWay();
-        $AliSMS->send($mobile, ['code'=>$code], 'SMS_10210103');
+class Message
+{
+
+
+
+    /**
+     * 阿里大鱼发送短信
+     */
+    public function senddayuMessage($status,$params=[]){
+  
+        $message=new Alidayu();
+
+        switch($status){
+            case 1;
+                $number="SMS_165000248";//用户注册验证码
+                break;
+             case 2;
+                 $number="SMS_165000247";//用户注册验证码
+                 break;
+             case 3;
+                 $number="SMS_165109746";//任务通知短信
+        }
+
+        $send_content=[
+            "code"=>$params["code"],
+            "prodcut"=>$params["code"]
+        ];
+
+        $params=[
+            "phone"=>$params["mobile"],
+            "number"=>$number,
+            "send_content"=>$send_content
+        ];
+        $res=$message->sendSms($params);
+
+        return $res;
     }
 
-}
 
+
+}
 ```
