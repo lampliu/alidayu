@@ -22,9 +22,8 @@ class AlidayuMessage {
         $security = false;
 
         // fixme 必填: 请参阅 https://ak-console.aliyun.com/ 取得您的AK信息
-        $accessKeyId = "1111111111111";
-        $accessKeySecret = "22222222222222";
-
+        $accessKeyId = "your access key id";
+		$accessKeySecret = "your access key secret";
         // fixme 必填: 短信接收号码
         $params["PhoneNumbers"] = $send_params["phone"];
 
